@@ -27,12 +27,9 @@ public class ButtonClicked extends JPanel {
     }
     
 class buttonActionListener implements ActionListener {
-    
 	public void actionPerformed(ActionEvent event) {
-		
 		if (event.getSource() instanceof JButton) {
 			JButton button = (JButton)event.getSource();
-
 			if(button.getText().equals("")) {
 				count++;
 				if(count%2 == 1)
@@ -40,7 +37,6 @@ class buttonActionListener implements ActionListener {
 	           		else if (count%2 == 0)
 	           			button.setText("O");
 			}
-
 			if(WinCheck() == true) {
 				if (button.getText().equals("X")) 
 					JOptionPane.showMessageDialog(null, "Player X Win.");
@@ -56,21 +52,18 @@ class buttonActionListener implements ActionListener {
     	}
         
 	public boolean WinCheck() {
-		
 		if(NextCellCheck(0,1) && NextCellCheck(1,2))
 			return true;
 		else if(NextCellCheck(3,4) && NextCellCheck(4,5))
 			return true;
 		else if (NextCellCheck(6,7) && NextCellCheck(7,8))
 			return true;
-		
 		if (NextCellCheck(0,3) && NextCellCheck(3,6))
 			return true;  
 		else if (NextCellCheck(1,4) && NextCellCheck(4,7))
 			return true;
 		else if (NextCellCheck(2,5) && NextCellCheck(5,8))
 			return true;
-		
 		if (NextCellCheck(0,4) && NextCellCheck(4,8))
 			return true;  
 		else if (NextCellCheck(2,4) && NextCellCheck(4,6))
